@@ -38,13 +38,4 @@ function save_birthday($member_id, $birthday)
     );
 }
 
-function register_hooks()
-{
-    // Hook into the registration process
-    add_hook('register', 'modify_registration_fields');
-    add_hook('register_save', 'save_birthday');
-}
-
-register_hooks();
-
 ?>
