@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+!DOCTYPE package-info SYSTEM "http://www.simplemachines.org/xml/package-info">
+<package-info xmlns="http://www.simplemachines.org/xml/package-info" xmlns:smf="http://www.simplemachines.org/">
+    <id>Rumpa:Birthday_On_Registration</id>
+    <name>BirthdayOnRegistration</name>
+    <version>1.0</version>
+    <description>Adds a birthday field to the registration form.</description>
+    <type>modification</type>
+	
+    <install for="2.1.4">
+		<require-file name="BirthdayOnRegistration.php" destination="$sourcedir" />
+        <hook hook="integrate_register" file="BirthdayOnRegistration.php" function="modify_registration_fields" />
+        <hook hook="integrate_register_save" file="BirthdayOnRegistration.php" function="save_birthday" />
+    </install>
+	
+	<uninstall for="2.1.4>
+        <hook hook="integrate_register" file="BirthdayOnRegistration.php" function="modify_registration_fields" reverse="true" />
+		<hook hook="integrate_register_save" file="BirthdayOnRegistration.php" function="save_birthday" reverse="true" />
+		<remove-file name="$sourcedir/BirthdayOnRegistration.php" />
+	</uninstall>	
+</package-info>
